@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssss.dao.UserDao">
+	
+	 <insert id="add" parameterType="User">
+		insert into user values(null,#{userName},#{userPwd},#{userPhone},#{userEmail},#{userCredit},#{userState})
+	</insert>
+	
+	<update id="update" parameterType="User">
+		update user set userName = #{userName},userPwd = #{userPwd},userEmail = #{userEmail},userPhone = #{userPhone},userCredit = #{userCredit},userState = #{userState}
+    where userID = #{userID}
+	</update>
+	
+	<update id="updateName" parameterType="String">
+		update user set userName = #{userName}
+    where userID = #{userID}
+	</update>
+	
+	<update id="updatePwd" parameterType="String">
+		update user set userPwd = #{userPwd}
+    where userID = #{userID}
+	</update>
+	
+	<update id="updatePhone" parameterType="String">
+		update user set userPhone = #{userPhone}
+    where userID = #{userID}
+	</update>
+	
+	<update id="updateEmail" parameterType="String">
+		update user set userEmail = #{userEmail} where userID = #{userID}
+	</update>
+	
+	<update id="updateState" parameterType="Integer">
+		update user set userEmail = #{userState} where userID = #{userState}
+	</update>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from user where userID = #{userID}
+	</delete>
+	
+	<select id="findByID" parameterType="Integer" resultType="User">
+		select * from user where userID = #{userID}
+	</select>
+	
+	<select id="findByUserName" parameterType="String" resultType="User">
+		select * from user where userName = #{userName}
+	</select>
+	
+	<resultMap type="User" id="userMap">
+		<id column="userID" property="userID"/>
+		<result column="userName" property="userName"/>
+		<result column="userPwd" property="userPwd"/>
+		<result column="userPhone" property="userPhone"/>
+		<result column="userEmail" property="userEmail"/>
+		<result column="userCredit" property="userCredit"/>
+		<result column="userState" property="userState"/>
+	</resultMap>
+	
+	<select id="findAll" parameterType="PageModel" resultMap="userMap">
+		select * from user
+		limit #{pagestart},#{pagesize}
+	</select>
+	
+	<select id="findAllCount" parameterType="PageModel" resultType="Integer">
+	   select count(*) from user
+	</select>
+	
+	<select id="findByState" parameterType="String" resultMap="userMap">
+		select * from user where userState = #{userState}
+	</select>
+	
+	<select id="findAllNeedCheck" resultMap="userMap">
+		select * from user where userState = '2'
+	</select>
+</mapper>

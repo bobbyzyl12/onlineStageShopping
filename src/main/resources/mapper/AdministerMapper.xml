@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssss.dao.AdministerDao">
+	
+	 <insert id="add" parameterType="Administer">
+		insert into administer(administerName,administerPwd,administerState) values(#{administerName},#{administerPwd},#{administerState})
+	</insert>
+
+	<update id="updateName" parameterType="Administer">
+		update administer set administerName = #{administerName}
+    where administerID = #{administerID}
+	</update>
+	
+	<update id="updatePwd" parameterType="Administer">
+		update administer set administerPwd = #{administerPwd}
+    where administerID = #{administerID}
+	</update>
+	
+	<update id="updateState" parameterType="Administer">
+		update administer set administerState = #{administerState}
+    where administerID = #{administerID}
+	</update>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from administer where administerID = #{administerID}
+	</delete>
+	
+	<select id="findByID" parameterType="Integer" resultType="Administer">
+		select * from administer where administerID = #{administerID}
+	</select>
+	
+	<select id="findByName" parameterType="String" resultType="Administer">
+		select * from administer where administerName = #{administerName}
+	</select>
+	
+</mapper>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssss.dao.CartDao">
+	<!--增加一个cart元素-->
+ 	<insert id="addCart" parameterType="Integer">
+		insert into cart(cartID) values(#{cartID})
+	</insert>
+	
+	<!--查找一个cart元素-->
+	<select id="findByCartID" parameterType="Integer" resultType="Cart">
+		select * from cart where cartID = #{cartID}
+	</select>
+	
+	<!--删除一个cart元素-->
+	<delete id="deleteCart" parameterType="Integer">
+		delete from cart where cartID = #{cartID}
+	</delete>
+
+	<!--在购物车内添加新的商品：实质上是在购物车和商品的关联表内插入一个元组-->
+	<insert id="addIntoCart" parameterType="GoodsInCart">
+		insert into cinclude(goodsID,cartID,quantity,stageLevel) values(#{goodsID},#{cartID},#{quantity},#{stageLevel})
+	</insert>
+	
+	<!--在购物车内通过商品ID和购物车ID以及商品分级查找元组-->
+	<select id="findGoodsInCart" parameterType="GoodsInCart" resultType="GoodsInCart">
+		select * from cinclude where goodsID = #{goodsID} and cartID = #{cartID} and stageLevel= #{stageLevel}
+	</select>
+	
+	<!--修改购物车内的商品-->
+	<update id="editGoodsInCart" parameterType="GoodsInCart">
+		update cinclude set quantity = #{quantity}
+		where goodsID = #{goodsID} and cartID = #{cartID} and stageLevel= #{stageLevel}
+	</update>
+	
+	<!--删除购物车内的商品-->
+	<delete id="deleteGoodsInCart" parameterType="GoodsInCart">
+		delete from cinclude where goodsID = #{goodsID} and cartID = #{cartID} and stageLevel= #{stageLevel}
+	</delete>
+	
+	<!--删除某个购物车内的所有商品-->
+	<delete id="deleteAllGoodsInCart" parameterType="Integer">
+		delete from cinclude where cartID = #{cartID}
+	</delete>
+	
+	<resultMap type="GoodsInCart" id="myCartMap">
+		<result column="goodsID" property="goodsID"/>
+		<result column="cartID" property="cartID"/>
+		<result column="quantity" property="quantity"/>
+		<result column="stageLevel" property="stageLevel"/>
+	</resultMap>
+	
+	<!--在购物车内通过购物车ID查找元组-->
+	<select id="findMyCart" parameterType="Integer" resultMap="myCartMap">
+		select * from cinclude where cartID = #{cartID}
+	</select>
+	
+	<!--在购物车内通过购物车ID查找元组并根据其分期级别排序-->
+	<select id="findMyCartOrdered" parameterType="Integer" resultMap="myCartMap">
+		select * from cinclude where cartID = #{cartID} order by stageLevel
+	</select>
+	
+	<!--在购物车内通过商品ID查找购物车内的同样信用等级的商品数量-->
+	<select id="findQuantityInCart" parameterType="GoodsInCart" resultType="Integer">
+		select quantity from cinclude where goodsID = #{goodsID} and cartID = #{cartID} and stageLevel= #{stageLevel}
+	</select>
+	
+	<!--在购物车内通过商品ID修改数据-->
+	<update id="updateCart"  parameterType="GoodsInCart">
+		update cinclude set quantity = #{quantity},stageLevel= #{stageLevel}
+		where goodsID = #{goodsID} and cartID = #{cartID}
+	</update>
+	
+	
+</mapper>

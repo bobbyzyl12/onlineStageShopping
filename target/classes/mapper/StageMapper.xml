@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssss.dao.StageDao">
+
+	<!--增加一个stage元组-->
+	<insert id="add" parameterType="Stage">
+		insert into stage(stageID,stageNum,charge) values(#{stageID},#{stageNum},#{charge})
+	</insert>
+	
+	<!--通过stageID查找一个stage元组-->
+	<select id="findByID" parameterType="Integer" resultType="Stage">
+		select * from stage where stageID = #{stageID}
+	</select>
+	
+	<resultMap type="Integer" id="stageIDMap">
+		<result column="stageID" property="stageID"/>
+	</resultMap>
+	
+	<!--通过creditID查找所有与之相对应的stage元组-->
+	<select id="findStageByCredit" parameterType="Integer" resultType="Integer">
+		select stageID from creditStage where creditID = #{creditID}
+	</select>
+</mapper>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssss.dao.GoodsDao">
+
+	<!--增加一个goods元素-->
+ 	<insert id="add" parameterType="Goods">
+		insert into goods(goodsName,goodsPrice,goodsStore,goodsDescribe,goodsPicture,goodsState) values(#{goodsName},#{goodsPrice},#{goodsStore},#{goodsDescribe},#{goodsPicture},#{goodsState})
+	</insert>
+	
+	<!--删除一个goods元素-->
+ 	<delete id="delete" parameterType="Integer">
+		delete from goods where goodsID = #{goodsID}
+	</delete>
+	
+	<!--根据id修改一个goods元素 -->
+	<update id="update" parameterType="Goods">
+		update goods set goodsName = #{goodsName},goodsPrice = #{goodsPrice},goodsStore = #{goodsStore},goodsDescribe = #{goodsDescribe},goodsPicture = #{goodsPicture},goodsState = #{goodsState}
+    where goodsID = #{goodsID}
+	</update>
+	
+	<!--修改一个goods元素（分别为商品名，商品价格，商品库存，商品描述和商品图片路径）-->
+	<update id="updateName" parameterType="Goods">
+		update goods set goodsName = #{goodsName}
+    where goodsID = #{goodsID}
+	</update>
+	
+	<update id="updatePrice" parameterType="Goods">
+		update goods set goodsPrice = #{goodsPrice}
+		where goodsID = #{goodsID}
+	</update>
+	
+	<update id="updateStore" parameterType="Goods">
+		update goods set goodsStore = #{goodsStore}
+		where goodsID = #{goodsID}
+	</update>
+	
+	<update id="updateDescribe" parameterType="Goods">
+		update goods set goodsDescribe = #{goodsDescribe}
+		where goodsID = #{goodsID}
+	</update>
+	
+	<update id="updatePicture" parameterType="Goods">
+		update goods set goodsPicture = #{goodsPicture}
+		where goodsID = #{goodsID}
+	</update>
+	
+	<!--通过id查找一个goods元素-->
+	<select id="findByID" parameterType="Integer" resultType="Goods">
+		select * from goods where goodsID = #{goodsID}
+	</select>
+	
+	<!--通过商品名查找一个goods元素-->
+	<select id="findByName" parameterType="String" resultType="Goods">
+		select * from goods where goodsName = #{goodsName}
+	</select>
+	
+	<resultMap type="Goods" id="goodsMap">
+		<id column="goodsID" property="goodsID"/>
+		<result column="goodsName" property="goodsName"/>
+		<result column="goodsPrice" property="goodsPrice"/>
+		<result column="goodsStore" property="goodsStore"/>
+		<result column="goodsPicture" property="goodsPicture"/>
+		<result column="goodsDescribe" property="goodsDescribe"/>
+		<result column="goodsState" property="goodsState"/>
+	</resultMap>
+	
+	<select id="findAll" parameterType="PageModel" resultMap="goodsMap">
+		select * from goods
+		limit #{pagestart},#{pagesize}
+	</select>
+	
+	<select id="findAllCount" resultType="Integer">
+	   select count(*) from goods
+	</select>
+	
+	<select id="search" parameterType="String" resultMap="goodsMap">
+		SELECT * FROM goods WHERE goodsName LIKE #{temp}
+	</select>
+	
+</mapper>

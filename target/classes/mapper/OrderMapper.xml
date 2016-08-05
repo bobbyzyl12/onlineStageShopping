@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssss.dao.OrderDao">	
+	
+	<resultMap type="GoodsInOrder" id="goodsInOrderMap">
+		<result column="goodsID" property="goodsID"/>
+		<result column="quantity" property="quantity"/>
+		<result column="orderID" property="orderID"/>
+	</resultMap>
+	
+	<resultMap type="Order" id="OrderMap">
+		<result column="orderID" property="orderID"/>
+		<result column="userID" property="userID"/>
+		<result column="orderState" property="orderState"/>
+		<result column="orderCreateDate" property="orderCreateDate"/>
+		<result column="orderAddress" property="orderAddress"/>
+		<result column="orderLevel" property="orderLevel"/>
+		<result column="totalPrice" property="totalPrice"/>
+	</resultMap>
+	
+	<resultMap type="OrderDetail" id="OrderDetailMap">
+		<result column="orderDetailID" property="orderDetailID"/>
+		<result column="stageState" property="stageState"/>
+		<result column="stageMoney" property="stageMoney"/>
+		<result column="deadline" property="deadline"/>
+		<result column="stageNo" property="stageNo"/>
+		<result column="orderID" property="orderID"/>
+	</resultMap>
+	
+	<!--插入一条新的订单-->
+	<insert id="add" parameterType="Order">
+	<selectKey keyProperty="orderID" resultType="Integer" order="AFTER">
+		select last_insert_id()
+	</selectKey> 
+		insert into orderform(userID,orderCreateDate,orderState,orderAddress,orderLevel,totalPrice) values(#{userID},#{orderCreateDate},#{orderState},#{orderAddress},#{orderLevel},#{totalPrice})
+	</insert>
+	
+	<!--通过订单的ID查找订单-->
+	<select id="findByID" parameterType="Integer" resultType="Order">
+		select * from orderform where orderID = #{orderID}
+	</select>
+	
+	<!--通过查找所有待审核的订单-->
+	<select id="findAllToCheck" resultMap="OrderMap">
+		select * from orderform where orderState = "2" order by orderState
+	</select>
+	
+	<!--查找所有订单-->
+	<select id="findAll" parameterType="PageModel" resultMap="OrderMap">
+		select * from orderform
+		limit #{pagestart},#{pagesize}
+	</select>
+	
+	<!--查找订单的数量-->
+	<select id="findAllCount" parameterType="PageModel" resultType="Integer">
+	   select count(*) from orderform
+	</select>
+	<!--通过订单的ID修改订单-->
+	<update id="update" parameterType="Order">
+		update orderform set userID = #{userID},orderCreateDate = #{orderCreateDate},orderState =#{orderState},orderAddress = #{orderAddress},orderLevel = #{orderLevel},totalPrice = #{totalPrice}
+    	where orderID = #{orderID}
+	</update>
+	
+	<insert id="addGoodsInOrder" parameterType="GoodsInOrder">
+		insert into oinclude(goodsID,orderID,quantity) values(#{goodsID},#{orderID},#{quantity})
+	</insert>
+	
+	<!--根据orderID和stageID其orderDetail-->
+	<select id="findDetailByID" parameterType="Integer" resultType="OrderDetail" >
+		select * from orderdetail where orderDetailID = #{orderDetailID}
+	</select>
+	
+	<!--在通过订单查询所有包含在该订单里的商品id及数量-->
+	<select id="selectGoodsInOrder" parameterType="Integer" resultMap="goodsInOrderMap">
+		select * from oinclude where orderID = #{orderID}
+	</select>
+	
+	<!--根据userID查找所有该user的所有order-->
+	<select id="selectOrderByUserID" parameterType="Integer" resultMap="OrderMap">
+		select * from orderform where userID = #{userID} order by orderState
+	</select>
+	
+	<!--插入一条信息到orderDetail中-->
+	<insert id="addIntoOrderDetail" parameterType="OrderDetail">
+		insert into orderDetail(stageState,stageMoney,deadline,stageNo,orderID) values(#{stageState},#{stageMoney},#{deadline},#{stageNo},#{orderID})
+	</insert>
+	
+	<!--根据orderID查找所有该order的所有orderDetail-->
+	<select id="findDetailByOrderID" parameterType="Integer" resultMap="OrderDetailMap">
+		select * from orderdetail where orderID = #{orderID}
+	</select>
+	
+	<!--根据orderID以及stageNo查找该条orderDetail-->
+	<select id="findDetailByNo" parameterType="OrderDetail" resultType="OrderDetail">
+		select * from orderdetail where orderID = #{orderID} and stageNo = #{stageNo}
+	</select>
+	
+	<!--根据orderID以及stageNo更新该条orderDetail的state为3(已支付)-->
+	<update id="updateToPaid" parameterType="OrderDetail">
+		update orderdetail set stageState = '3' where orderID = #{orderID} and stageNo = #{stageNo}
+	</update>
+	
+	<!--根据orderID以及stageNo更新该条orderDetail的state为2(等待支付)-->
+	<update id="updateToWait" parameterType="OrderDetail">
+		update orderdetail set stageState = '2' where orderID = #{orderID} and stageNo = #{stageNo}
+	</update>
+	
+</mapper>
