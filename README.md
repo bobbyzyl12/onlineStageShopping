@@ -6,7 +6,7 @@ simple introduction of the project "onlineStageShopping"
   a school project mainly for practice on web in summer vacation  
   just a demo project!!
 
-###develop environment
+###environment
   -language: java  
   -spring&springmvc&mybatics  
   -server:tomcat 7.0  
