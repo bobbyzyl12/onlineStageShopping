@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	*{
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
+	html, body,div{
+		height: 100%;
+		overflow-x:hidden;
+		overflow-y:hidden;
+	}
+	
+	.layout-total{
+		height:620px;
+		width:1300px;
+		margin: auto;
+  		position: absolute;  
+  		top:0;left:0;bottom:0;right: 0;  
+		background-color:grey;
+	}
+	
+	.layout-mainPlayArea
+	{
+		height:375px;
+		width:1300px;
+		margin: auto;  
+  		position: absolute;  
+  		top:0; left: 0; bottom:200px; right: 0;  
+		background-color:red;
+	}
+	
+	.layout-footArea
+	{
+		height:200px;
+		width:1300px;
+		margin: auto;  
+  		position: absolute;  
+  		top:400px; left: 0; bottom:0; right: 0;
+ 		background-color:blue;
+	}
+	
+	.layout-myPicture{
+		height:200px;
+		width:200px;
+  		margin: auto;  
+  		position: absolute;  
+  		top:10px; left: 0px; bottom:10px; right:1050px;
+ 		background-color:pink;
+	}
+	
+	.layout-otherPlayer{
+		height:350px;
+		width:150px;
+  		margin: auto;  
+  		position: absolute;  
+  		top:10px; left: 0px; bottom:10px; right:1050px;
+		background-color:white;
+	}
+	
+	.layout-battleArea{
+		height:350px;
+		width:1000px;
+  		margin: auto;  
+  		position: absolute;  
+  		top:10px; left:225px; bottom:10px; right:0px;
+		background-color:black;
+	}
+	
+	.layout-stageArea{
+		height:75px;
+		width:950px;
+  		margin: auto;  
+  		position: absolute;  
+  		top:0px; left:0px; bottom:250px; right:0px;
+		background-color:purple;
+	}
+	
+	.layout-chainArea{
+		height:250px;
+		width:950px;
+  		margin: auto;  
+  		position: absolute;  
+  		top:50px; left:0px; bottom:0px; right:0px;
+		background-color:yellow;
+	}
+	
+	.layout-cardArea{
+		height:200px;
+		width:1000px;
+  		margin: auto;  
+  		position: absolute;  
+  		top:0px; left:225px; bottom:0px; right:0px;
+ 		background-color:green;
+	}
+	
+	.layout-giveUpButton{
+		height:40px;
+		width:100px;
+  		position:absolute;
+  		bottom:20px; right:20px;
+ 		background-color:orange;
+ 		color: #fff;
+ 		border:2px solid;
+		border-radius:25px;
+		outline: 0 none;
+	}
+	
+</style>
+<body>
+	<div class="layout-total">
+		<div class="layout-mainPlayArea">
+			<div class="layout-otherPlayer">
+			</div>
+			<div class="layout-battleArea">
+				<div class="layout-stageArea">
+				</div>
+				<div class="layout-chainArea">
+					<input type="button" id="giveUp" class="layout-giveUpButton" value="giveUp">
+				</div>
+			</div>
+		</div>
+		<div class="layout-footArea">
+			<div class="layout-myPicture">
+			
+			</div>
+			<div class="layout-cardArea">
+			
+			</div>
+		</div>
+	</div>
+</body>
+</html>
