@@ -44,7 +44,8 @@
 	div.main_container_box{
 		position:relative;
 		top:10px;
-		width:1200px;
+		width:1000px;
+		height:600px;
 		margin-left:auto;
 		margin-right:auto;
 		background-color:#E9E9E9;
@@ -60,6 +61,12 @@
 		text-align:center;
 		display:block;
 		background-color:#fff;
+		border-top-width:1px;
+		border-style:solid;
+		border-color:#ccc;
+		border-bottom-width:0px;
+		border-left-width:0px;
+		border-right-width:0px;
 	}
 	
 	.header_basic{
@@ -77,7 +84,7 @@
 	
 	.header_box{
 		height:100%;
-		width:1200px;
+		width:1000px;
 			
 		margin-left:auto;
     	margin-right:auto;
@@ -126,19 +133,19 @@
 	
 	.header_under_center{
 		height:100%;
-		width:1200px;
+		width:1000px;
 		margin-left:auto;
     	margin-right:auto;
     	vertical-align:middle;
 	}
 		
 	.chart_box{
-		float:left;
-		width:500px;
+		display:inline-block;
+		width:450px;
 	}
 	
 	.big_chart{
-		height:375px;
+		height:350px;
 		width:400px;
 		margin-top:20px;
 		margin-bottom:10px;
@@ -159,7 +166,7 @@
 	}
 	
 	.small_chart{
-		float:left;
+		display:inline-block;
 		width:195px;
 		text-align:center;
 		background-color:white;
@@ -168,7 +175,7 @@
 	}	
 	
 	.chart_btn_box{
-		float:right;
+		display:inline-block;
 		height:200px;
 		width:195px;
 		margin:0px;
@@ -176,17 +183,18 @@
 		background-color:white;
 		box-shadow:2px 2px 3px #aaaaaa;
 		border-radius:5px;
+		position:relative;
+		left:10px;
 	}
 	
 	.message_box{
-		float:right;
-		height:580px;
-		width:700px;
+		height:560px;
+		width:540px;
 		margin-left:auto;
 		margin-right:auto;
-		position:relative;
+		position:absolute;
 		top:20px;
-		right:30px;
+		right:20px;
 		
 		background-color:white;
 		box-shadow:2px 2px 3px #aaaaaa;
@@ -196,7 +204,7 @@
 	}
 	
 	.order_msg{
-		height:250px;
+		height:240px;
 		border-style:solid;
   		border-top-width:2px;
   		border-bottom-width:2px;
@@ -208,7 +216,7 @@
 	}
 	
 	.user_msg{
-		height:250px;
+		height:240px;
 		border-style:solid;
   		border-top-width:2px;
   		border-bottom-width:2px;
@@ -257,9 +265,8 @@
 		  width:100px;
 		  color:#ffffff;
 		  background-color:#4a8cf7;
-		  font-size:20px;
+		  font-size:18px;
 		  font-weight:normal;
-		  font-family:Microsoft YaHei;
 		  border:2px solid #dcdcdc;
 		  -webkit-border-top-left-radius:8px;
 		  -moz-border-radius-topleft:8px;
@@ -294,9 +301,8 @@
 		  width:100px;
 		  color:#ffffff;
 		  background-color:#ff6782;
-		  font-size:20px;
+		  font-size:18px;
 		  font-weight:normal;
-		  font-family:Microsoft YaHei;
 		  border:2px solid #dcdcdc;
 		  -webkit-border-top-left-radius:8px;
 		  -moz-border-radius-topleft:8px;
@@ -398,7 +404,7 @@
 						<p><span class="title_text">用户现总欠款金额：</span>￥ 300.00</p>
 						<p><span class="title_text">用户最高欠款累计额度：</span>￥ 1000.00</p>
 						<p><span class="title_text">用户剩余可欠款额度：</span><span class="important_text">￥ 700.00</span></p>		
-						<img src="userImg.png" class="icon_img" style="position:absolute;top:270px;right:40px;"/>
+						<img src="userImg.png" class="icon_img" style="position:absolute;top:260px;right:40px;"/>
 					</div>
 					<div class="result_msg">
 						<button class="btn_pass">通过</button>

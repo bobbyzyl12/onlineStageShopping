@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">  
   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
 <style type="text/css">
 	html,body,div,ul,li
 	{
@@ -30,24 +31,39 @@
 	
 	div.wrapper{
 		position:relative;
-		height:auto !important;
 		min-height:100%;
+		height:auto !important;
+		width:100%;
 	}
 	
 	div.main_container{
-		background-color:#ccc;
-		min-height:500px;
-		padding-bottom:90px;
+		padding-bottom:40px;
+	}
+	
+	div.main_container_box{
+		position:relative;
+		width:1000px;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top:10px;
+		margin-bottom:10px;
 	}
 	
 	div.footer{
-		margin-top:30px;
+		height:30px;
 		position:absolute;
 		bottom:0px;
-		left:0;		/*IE*/
-		height:30px;
+		left:0px;
 		width:100%;
 		text-align:center;
+		display:block;
+		background-color:#fff;
+		border-top-width:1px;
+		border-style:solid;
+		border-color:#ccc;
+		border-bottom-width:0px;
+		border-left-width:0px;
+		border-right-width:0px;
 	}
 	
 	.header_basic{
@@ -65,7 +81,7 @@
 	
 	.header_box{
 		height:100%;
-		width:1200px;
+		width:1000px;
 			
 		margin-left:auto;
     	margin-right:auto;
@@ -93,6 +109,7 @@
 		color:rgb(102, 102, 102);
 		font-weight:bold;
 		text-align:center;
+		padding:4px;
 		border:2px solid #ccc; 
 		border-width:0 2px 0 0;
 		text-decoration:none;
@@ -110,7 +127,7 @@
 	
 	.header_under_center{
 		height:100%;
-		width:1200px;
+		width:1000px;
 		margin-left:auto;
     	margin-right:auto;
     	vertical-align:middle;
@@ -119,10 +136,13 @@
 	.header_logo_box{
 		width:auto;
 		padding:10px 0px 0px 0px;
+		position:relative;
+		left:30px;
 		float:left;
 	}
 		
 	img.header_logo{
+		
 		height:80px;
 	}
 	
@@ -133,7 +153,7 @@
 	.header_search_box{
 		float:left;
 		position:relative;
-		left:50px;
+		left:80px;
 		padding:25px 50px 0px 0px;
 	}
 	
@@ -177,6 +197,26 @@
 		background-color:#007fff;
 	}
 	
+	em.new_msg{
+		min-width: 16px;
+    	height: 16px;
+    	line-height: 14px;
+    	text-align: center;
+    	display:inline-block;
+    	background: #ff6384;
+    	color: #fff;
+    	border-radius: 3px;
+    	
+    	position: relative;
+    	right: 18px;
+    	top: -65px;
+    	padding:0 2px 0 2px;
+    	border: 1px solid #fff;
+    	
+    	font-style:normal;
+		font-size:9px;
+	}
+	
 </style>
 </head>
 <body>
@@ -188,24 +228,54 @@
 						<ul>
 							<li>
 								<a href="#" class="header_btn" style="border-width:0 2px 0 2px;">
-	  								<p style="font-size:20px;">登陆</p>
+	  								<span class="glyphicon glyphicon-user header_icon"></span>
+	  								<p style="display:inline-block;">&nbsp;&nbsp;个人中心</p>
 								</a>
 							</li>
 							<li>
 								<a href="#" class="header_btn">
-	  								<p style="font-size:20px;">注册</p>
+	  								<span class="glyphicon glyphicon-envelope header_icon"></span>
+	  								<p style="display:inline-block;">&nbsp;&nbsp;我的消息</p>
+	  								<em class="new_msg">12</em>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="header_btn">
+	  								<span class="glyphicon glyphicon-shopping-cart header_icon"></span>
+	  								<p style="display:inline-block;">&nbsp;&nbsp;购物车</p>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="header_btn">
+	  								<span class="glyphicon glyphicon-list-alt header_icon"></span>
+	  								<p style="display:inline-block;">&nbsp;&nbsp;我的订单</p>
 								</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
+			<div class="header_under">
+				<div class="header_under_center">
+					<div class="header_logo_box">
+						<a href="">
+							<img class="header_logo" src="logo.png">
+						</a>
+					</div>
+					<div class="header_search_box">
+						<div class="search_box">
+							<input class="header_search" id="search" placeholder="输入关键字">
+						</div>
+						<div class="search_btn_box">
+							<button class="search_btn">搜索</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="main_container">
-			<div>
-				<div>
-					
-				</div>
+			<div class="main_container_box" style="background-color:#ccc;">
+				<div style="height:1000px;width:400px;"></div>
 			</div>
 		</div>
 		<div class="footer">
