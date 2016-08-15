@@ -228,27 +228,8 @@
 						<ul>
 							<li>
 								<a href="#" class="header_btn" style="border-width:0 2px 0 2px;">
-	  								<span class="glyphicon glyphicon-user header_icon"></span>
-	  								<p style="display:inline-block;">&nbsp;&nbsp;个人中心</p>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="header_btn">
-	  								<span class="glyphicon glyphicon-envelope header_icon"></span>
-	  								<p style="display:inline-block;">&nbsp;&nbsp;我的消息</p>
-	  								<em class="new_msg">12</em>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="header_btn">
-	  								<span class="glyphicon glyphicon-shopping-cart header_icon"></span>
-	  								<p style="display:inline-block;">&nbsp;&nbsp;购物车</p>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="header_btn">
-	  								<span class="glyphicon glyphicon-list-alt header_icon"></span>
-	  								<p style="display:inline-block;">&nbsp;&nbsp;我的订单</p>
+	  								<span class="glyphicon glyphicon-log-out header_icon"></span>
+	  								<p style="display:inline-block;">&nbsp;&nbsp;退出登陆</p>
 								</a>
 							</li>
 						</ul>
