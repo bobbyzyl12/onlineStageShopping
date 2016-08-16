@@ -39,6 +39,7 @@
 		padding-bottom:30px;
 		overflow:hidden;
 		height:600px;
+		text-align:center;
 	}
 	
 	div.footer{
@@ -123,32 +124,15 @@
 		height:600px;
 		width:300px;
 		background-color:#4f90fb;
-		display:inline-block;
 	}
 	
 	div.work_area{
-		display:inline-block;
 		position:relative;
-		right:0px;
-		padding:20px;
+		left:300px;
+		width:100%;
 		height:600px;
-		width:1000px;
-		background-color:black;
-	}
-	
-	.work_header{
-		background-color:green;
-		height:60px;
-	}
-	
-	.work_main_area{
-		background-color:red;
-		height:450px;
-	}
-	
-	.page_model{
-		background-color:yellow;
-		height:50px;
+		padding-top:15px;
+		padding-bottom:15px;
 	}
 	
 	.index_image_box{
@@ -162,11 +146,16 @@
 		line-height:50px;
 		height:50px;
 		padding-left:30px;
+		text-align:left;
 		border-bottom: 1px solid #267ED5;
 	}
 	
 	li.index_li:hover{
 		background-color:#69a1fc;
+	}
+	
+	li.page_li{
+		float: left;
 	}
 	
 	span.index_icon{
@@ -181,10 +170,245 @@
 		font-weight:bold;
 	}
 	
+/*** Table Styles **/
+	.info_table {
+	  background: white;
+	  border-radius:3px;
+	  border-collapse: collapse;
+	  height: 320px;
+	  margin: auto;
+	  max-width:900px;
+	  padding:5px;
+	  width: 100%;
+	  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+	  animation: float 5s infinite;
+	  position:absolute;
+	  left:50px;
+	}
+	
+	th.info_title{
+		  color:#D5DDE5;;
+		  background:#1b1e24;
+		  border-bottom:4px solid #9ea7af;
+		  border-right: 1px solid #343a45;
+		  font-size:23px;
+		  font-weight: 100;
+		  padding:24px;
+		  text-align:left;
+		  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+		  vertical-align:middle;
+	}
+	
+	div.work_header_box{
+		position:relative;
+		height:50px;
+	}
+	
+	div.work_table_box{
+		position:relative;
+		height:450px;
+	}
+	
+	div.work_page_box{
+		position:relative;
+		height:50px;
+	}
+	
+	div.pages{
+		position:relative;
+		left:-50px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	table.info_table {
+	  background: white;
+	  border-radius:3px;
+	  border-collapse: collapse;
+	  height:auto !important;
+	  max-height: 450px;
+	  margin: auto;
+	  max-width: 950px;
+	  padding:5px;
+	  width: 100%;
+	  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+	  animation: float 5s infinite;
+	}
 	
 	
+	th {
+ 		color:#D5DDE5;;
+  		background:#1b1e24;
+  		border-bottom:4px solid #9ea7af;
+  		border-right: 1px solid #343a45;
+  		font-size:15px;
+  		font-weight: 100;
+  		padding:10px;
+ 		text-align:left;
+  		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  		vertical-align:middle;
+	}
 	
+	th:first-child {
+  		border-top-left-radius:3px;
+	}
+ 
+	th:last-child {
+	  border-top-right-radius:3px;
+	  border-right:none;
+	}
+	
+	tr {
+	  border-top: 1px solid #C1C3D1;
+	  border-bottom-: 1px solid #C1C3D1;
+	  color:#666B85;
+	  font-size:16px;
+	  font-weight:normal;
+	  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+	}
+	
+	tr,td{
+		height:25px;
+    	line-height:25px;
+	}
+	
+	tr:hover td {
+  		background:#4E5066;
+  		color:#FFFFFF;
+  		border-top: 1px solid #22262e;
+  		border-bottom: 1px solid #22262e;
+	}
+	
+	tr:first-child {
+	  border-top:none;
+	}
+	
+	tr:last-child {
+	  border-bottom:none;
+	}
+	 
+	tr:nth-child(odd) td {
+	  background:#EBEBEB;
+	}
+	 
+	tr:nth-child(odd):hover td {
+	  background:#4E5066;
+	}
+	
+	tr:last-child td:first-child {
+	  border-bottom-left-radius:3px;
+	}
+ 
+	tr:last-child td:last-child {
+	  border-bottom-right-radius:3px;
+	}
+ 
+ 	td {
+  		background:#FFFFFF;
+  		padding:5px 10px 5px 10px;
+ 		text-align:left;
+ 		vertical-align:middle;
+  		font-weight:300;
+  		font-size:12px;
+ 		text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  		border-right: 1px solid #C1C3D1;
+	}
+ 	
+ 	.page_btn{
+ 		border-radius:4px;
+    	border:1px solid #e5e9ef;
+    	background:#fff;
+    	margin-right:10px;
+    	text-align:center;
+    	width:38px;
+    	height:38px;
+    	line-height: 8px;
+    	margin-top:6px;
+    	outline:0;
+ 	}
+ 	
+ 	.page_btn:hover{
+ 		border:1px solid #4f90fb;
+ 		color:#4f90fb;
+ 	}
+ 	
+ 	span.pages_span{
+ 		margin-right:10px;
+ 		width:38px;
+    	height:38px;
+    	position:relative;
+    	top:10px;
+ 	}
 </style>
+
+<script type="text/javascript">
+	$(function(){
+		var currentPage=Number(20);
+		var pageNum=Number(50);
+		
+		$("#page_btn2").text(currentPage-2);
+		$("#page_btn3").text(currentPage-1);
+		$("#page_btn4").text(currentPage);
+		$("#page_btn5").text(currentPage+1);
+		$("#page_btn6").text(currentPage+2);
+		$("#page_btn7").text(pageNum);
+		
+		//改变当前页的button样式
+		$("#page_btn4").css("background-color","#4f90fb");
+		$("#page_btn4").css("border","1px solid #ddd");
+		$("#page_btn4").css("color","#fff");
+		
+		//先处理"上一页"和"下一页"的情况
+		if(currentPage==1)	//如果当前页为首页
+		{
+			$("#prePage").hide();	
+		}
+		
+		if(currentPage==pageNum)	//如果当前页为末页
+		{
+			$("#sufPage").hide();
+		}
+		
+		//处理当前页小于等于3的特殊情况
+		if(currentPage<=3){
+			$("#prePoint").hide();
+			$("##page_btn1").hide();
+		}
+		else if(currentPage==4){
+			$("#prePoint").hide();
+		}
+		
+		if(currentPage==1)
+		{
+			$("##page_btn2").hide();
+			$("##page_btn3").hide();
+		}
+		else if(currentPage==2)
+		{
+			$("##page_btn2").hide();
+		}
+		
+		if(currentPage>=pageNum-2){
+			$("#sufPoint").hide();
+			$("##page_btn7").hide();
+		}
+		else if(currentPage==pageNum-3){
+			$("#sufPoint").hide();
+		}
+		
+		if(currentPage==pageNum)
+		{
+			$("#page_btn5").hide();
+			$("#page_btn6").hide();
+		}
+		
+		if(currentPage==pageNum-1)
+		{
+			$("#page_btn6").hide();
+		}
+	});
+	
+</script>
 </head>
 <body>
 	<div class="wrapper">
@@ -236,9 +460,104 @@
 				</ul>
 			</div>
 			<div class="work_area">
-				<div class="work_header"></div>
-				<div class="work_main_area"></div>
-				<div class="page_model"></div>
+				<div class="work_header_box" style="background-color:red">
+					<button></button>
+				</div>		
+				<div class="work_table_box">
+					<table class="info_table">
+						<thead>
+							<tr>
+								<th>ID</th>
+  								<th>用户名</th>
+					  			<th>密码</th>
+					  			<th>电话</th>
+					  			<th>邮箱</th>
+					  			<th>等级</th>
+					  			<th>状态</th>
+					  			<th>身份证号</th>
+					  			<th></th>
+					  			<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+  								<td>xiaotian</td>
+					  			<td>233</td>
+					  			<td>13918281811</td>
+					  			<td>xiaotian@ao.com</td>
+					  			<td>普通用户1</td>
+					  			<td>正常</td>
+					  			<td>31020020101010111</td>
+					  			<td>修改</td>
+					  			<td>删除</td>
+							</tr>
+							<tr>
+								<td>1</td>
+  								<td>xiaotian</td>
+					  			<td>233</td>
+					  			<td>13918281811</td>
+					  			<td>xiaotian@ao.com</td>
+					  			<td>普通用户1</td>
+					  			<td>正常</td>
+					  			<td>31020020101010111</td>
+					  			<td>修改</td>
+					  			<td>删除</td>
+							</tr>
+							<tr>
+								<td>1</td>
+  								<td>xiaotian</td>
+					  			<td>233</td>
+					  			<td>13918281811</td>
+					  			<td>xiaotian@ao.com</td>
+					  			<td>普通用户1</td>
+					  			<td>正常</td>
+					  			<td>31020020101010111</td>
+					  			<td>修改</td>
+					  			<td>删除</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="work_page_box">
+					<div class="pages">
+						<ul>
+							<li class="page_li">
+								<button class="page_btn" style="width:100px" id="prePage">上一页</button>
+							</li>
+							<li class="page_li">
+								<button class="page_btn" id="page_btn1">1</button>
+							</li>
+							<li class="page_li">
+								<span class="pages_span" id="prePoint">...</span>
+							</li>
+							<li class="page_li">
+								<button class="page_btn" id="page_btn2"></button>
+							</li>
+							<li class="page_li">
+								<button class="page_btn" id="page_btn3"></button>
+							</li>
+							<li class="page_li">
+								<button class="page_btn" id="page_btn4"></button>
+							</li>
+							<li class="page_li">
+								<button class="page_btn" id="page_btn5"></button>
+							</li>
+							<li class="page_li">
+								<button class="page_btn" id="page_btn6"></button>
+							</li>
+							<li class="page_li">
+								<span class="pages_span" id="sufPoint">...</span>
+							</li>
+							<li class="page_li">
+								<button class="page_btn" id="page_btn7"></button>
+							</li>
+							<li class="page_li">
+								<button class="page_btn" style="width:100px" id="sufPage">下一页</button>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="footer">
